@@ -1,0 +1,145 @@
+def chkRowColBlk(lnToChk):
+    col1=""
+    col2=""
+    col3=""
+    col4=""
+    col5=""
+    col6=""
+    col7=""
+    col8=""
+    col9=""
+    blk1=""
+    blk2=""
+    blk3=""
+    blk4=""
+    blk5=""
+    blk6=""
+    blk7=""
+    blk8=""
+    blk9=""
+    row=0
+    for i in lnToChk:
+        lnToChkStr = str(i)
+        found=0
+        returnValue = False
+        
+        #Verify Each Row
+        #for j in range(1,10):
+        #    x=lnToChkStr.find(str(j))
+        #    if x >-1:
+        #        found = found+1
+        #        if found == 9:
+        #            returnValue = True
+        #if returnValue == False:
+        #    return returnValue
+        
+        #build a row for each column 
+        col1=col1+str(lnToChkStr[0])
+        col2=col2+str(lnToChkStr[1])
+        col3=col3+str(lnToChkStr[2])
+        col4=col4+str(lnToChkStr[3])
+        col5=col5+str(lnToChkStr[4])
+        col6=col6+str(lnToChkStr[5])
+        col7=col7+str(lnToChkStr[6])
+        col8=col8+str(lnToChkStr[7])
+        col9=col9+str(lnToChkStr[8])
+        
+        #build a row for each 3x3 bloc
+        row=row+1
+        if row<4:
+            blk1=blk1+str(lnToChkStr[0:3])
+            blk2=blk2+str(lnToChkStr[3:6])
+            blk3=blk3+str(lnToChkStr[6:9])
+        elif row<7:
+            blk4=blk4+str(lnToChkStr[0:3])
+            blk5=blk5+str(lnToChkStr[3:6])
+            blk6=blk6+str(lnToChkStr[6:9])
+        else:
+            blk7=blk7+str(lnToChkStr[0:3])
+            blk8=blk8+str(lnToChkStr[3:6])
+            blk9=blk9+str(lnToChkStr[6:9])
+
+    #Verify Each Column
+    found=0
+    returnValue = False
+    for j in range(1,10):
+        x=col1.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col2.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col3.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col4.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col5.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col6.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col7.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col8.find(str(j))
+        if x >-1:
+            found = found+1
+        x=col9.find(str(j))
+        if x >-1:
+            found = found+1
+
+    if found == 81:
+        returnValue = True
+    else:
+        return returnValue
+
+    #Verify Each Block
+    found=0
+    returnValue = False
+    for j in range(1,10):
+        x=blk1.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk2.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk3.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk4.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk5.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk6.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk7.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk8.find(str(j))
+        if x >-1:
+            found = found+1
+        x=blk9.find(str(j))
+        if x >-1:
+            found = found+1
+
+    if found == 81:
+        returnValue = True
+    else:
+        return returnValue
+
+if chkRowColBlk([295743861, 431865927, 876192543, 387459216, 612387495, 549216738, 763524189, 928671354, 154938672]) is False:
+    print("No")
+else:
+    print("Yes")
+
+
+if chkRowColBlk([195743862, 431865927, 876192543, 387459216, 612387495, 549216738, 763524189, 928671354, 254938671]) is False:
+    print("No")
+else:
+    print("Yes")
